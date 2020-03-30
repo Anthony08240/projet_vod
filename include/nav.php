@@ -11,6 +11,7 @@
                 <ul>
                     <Li><a href="catalogue.php">Films</a></Li>
                     <Li><a href="connexion.php">Connexion</a></Li>
+                    <li><a href="ajout_film.php">ajouter un film</a></li>
                         <div class="liens-couleurs">
 
                     <li>
@@ -77,6 +78,7 @@
                 <li>
                     <div class="style_ilayda"><a href="<?php echo $actuel; ?>?style=index.css"></a></div>
                 </li>
+                <li><a href="ajout_film.php">ajouter un film</a></li>
                 <li><a href="catalogue.php">Films</a></li>
                 <li><a href="connexion.php">Connexion</a></li>
             </ul>

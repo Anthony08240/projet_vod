@@ -5,7 +5,7 @@
 </div>
 
 <div class="center slider">
-    <a class="link-poster" href=""><img src="img/poster1.jpg" alt=""></a> 
+    <a class="link-poster" href=""><img src="affiche<?php echo $nom['affiche'] ?>" alt=""></a> 
     <a class="link-poster" href=""><img src="img/poster2.jpg" alt=""></a> 
     <a class="link-poster" href=""><img src="img/poster3.jpg" alt=""></a> 
     <a class="link-poster" href=""><img src="img/poster4.jpg" alt=""></a> 
