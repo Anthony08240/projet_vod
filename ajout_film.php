@@ -48,46 +48,145 @@ include 'include/nav.php'; ?>
     <div id="container">
       
 
-        <form action="traitement/insertion_film.php" method="POST" enctype="multipart/form-data">
+        <form action="traitement/insertion_film.php" method="POST">
             <h2>Ajouter un Film</h2>
 
-            <label><b>Nom Du Film</b></label>
+            <label><b>Nom Du Film</b><br></label>
             <input class="login" type="text" placeholder="Nom Du Film" name="nom" required autofocus> <br>
 
-            <label><b>Date De Sortie</b></label>
+            <label><b>Date De Sortie</b><br></label>
             <input class="login" type="date" placeholder="Date De Sortie" name="date_sortie" required> <br>
 
-            <label><b>Synopsis</b></label>
+            <label><b>Synopsis</b><br></label>
             <input class="login"  type="text" placeholder="Synopsis" name="synopsis" required><br>
 
-            <label><b>Durée</b></label>
+            <label><b>Durée</b><br></label>
             <input class="login"  type="time" placeholder="Dure" name="dure" required><br>
 
-            <label><b>bande anonce</b></label>
+            <label><b>bande anonce</b><br></label>
             <input class="login"  type="text" placeholder="Lien de la video" name="bande_anonce"><br>
 
-            <label><b>affiche</b></label>
-            <input class="login"  type="file" placeholder="ajouter image" name="affiche"><br>
+            <label><b>affiche</b><br></label>
+            <input class="login"  type="text" placeholder="url de l'affiche" name="affiche"><br>
 
             <input  class="ok" type="submit" id='submit' value='AJOUTER'> <br>
 
 
+        </form>
+    </div>
 
+<!-- ajout acteur-->
+
+
+<div id="container">
+  <form id="contact" action="traitement/insertion_acteur.php" method="post">
+    <h2><center>Ajouter un acteur</center></h2>
+    <fieldset>
+    <b>nom de l'acteur</b><br>
+      <input placeholder="nom de l'acteur" name="nom" type="text" required>
+    </fieldset><br><br>
+    <fieldset>
+    <b>prenom de l'acteur</b><br>
+      <input placeholder="Prenom de l'acteur" name="prenom" type="text" required>
+    </fieldset><br><br>
+    <fieldset>
+    <b>date de naissance</b><br>
+      <input placeholder="Date de Naissance" name="date_n" type="date" required>
+    </fieldset><br><br>
+    <fieldset>
+    <b>photo de l'acteur</b><br>
+      <input placeholder="url De La Photo" name="photo" type="text" required>
+    </fieldset><br><br>
+    <fieldset>
+           <select  name="id_cinema" required >
             <?php
+                include ('include/connect_bdd.php');
+
+                $req = $bdd->prepare(" SELECT id_film, nom FROM film ");
+                $req->execute();
+
+                while ( $donnees = $req->fetch() ){ ?>
+
+                  <option value="<?= $donnees['id_film']; ?>"> Nom Du Film : <?= $donnees['nom']; ?> </option>
+
+
+              <?php  }
+
+             ?>
+
+
+
+
+
+            </select>
+    </fieldset><br><br>
+    <fieldset>
+      <button class="ok" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Envoyer</button>
+    </fieldset>
+  </form>
+</div>
+
+
+<!-- ajout realisateur-->
+
+
+<div id="container">
+  <form id="contact" action="traitement/insertion_real.php" method="post">
+    <h2><center>Ajouter un realisateur</center></h2>
+    <fieldset>
+    <b>nom du realisateur</b><br>
+      <input placeholder="nom de l'acteur" name="nom" type="text" required>
+    </fieldset><br><br>
+    <fieldset>
+    <b>prenom du realisateur</b><br>
+      <input placeholder="Prenom de l'acteur" name="prenom" type="text" required>
+    </fieldset><br><br>
+    <fieldset>
+    <b>date de naissance</b><br>
+      <input placeholder="Date de Naissance" name="date_n" type="date" required>
+    </fieldset><br><br>
+    <fieldset>
+    <b>photo du realisateur</b><br>
+      <input placeholder="url De La Photo" name="photo" type="text" required>
+    </fieldset><br><br>
+    <fieldset>
+           <select  name="id_cinema" required >
+            <?php
+                include ('include/connect_bdd.php');
+
+                $req = $bdd->prepare(" SELECT id_film, nom FROM film ");
+                $req->execute();
+
+                while ( $donnees = $req->fetch() ){ ?>
+
+                  <option value="<?= $donnees['id_film']; ?>"> Nom Du Film : <?= $donnees['nom']; ?> </option>
+
+
+              <?php  }
+
+             ?>
+
+
+
+
+
+            </select>
+    </fieldset><br><br>
+    <fieldset>
+      <button class="ok" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Envoyer</button>
+    </fieldset>
+  </form>
+</div>
+<?php 
+include 'include/footer.php'; ?>
+
+
+<?php
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2)
                     echo "<p style='color:red'>Un problème est survenue</p>";
             }
             ?> 
-
-
-        </form>
-    </div>
-
-
-<?php 
-include 'include/footer.php'; ?>
-
 </body>
 </html>

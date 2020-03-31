@@ -1,19 +1,34 @@
+
  <!--AFFICHE-->
+
+ <?php include ('../include/connect_bdd.php'); ?>
+
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>affiche</title>
+ </head>
+ <body>
+
 
  <div class="title-dada-affiche">
     <h2>A l'affiche</h2>
 </div>
 
+
 <div class="center slider">
-    <a class="link-poster" href=""><img src="affiche<?php echo $nom['affiche'] ?>" alt=""></a> 
-    <a class="link-poster" href=""><img src="img/poster2.jpg" alt=""></a> 
-    <a class="link-poster" href=""><img src="img/poster3.jpg" alt=""></a> 
-    <a class="link-poster" href=""><img src="img/poster4.jpg" alt=""></a> 
-    <a class="link-poster" href=""><img src="img/poster5.jpg" alt=""></a> 
-    <a class="link-poster" href=""><img src="img/poster6.jpg" alt=""></a> 
-    <a class="link-poster" href=""><img src="img/poster7.jpg" alt=""></a> 
-    <a class="link-poster" href=""><img src="img/poster9.jpg" alt=""></a> 
- </div>
+        <?php
+        $req = $bdd->prepare(" SELECT affiche FROM film");
+        $req ->execute();
 
+        while( $donnees = $req->fetch() ) {
 
+        ?>
 
+            <a class="link-poster" href=""><img src="<?= $donnees['affiche'];?>"/></a> 
+
+        <?php } ?>
+    </div>
+ </body>
+ </html>
