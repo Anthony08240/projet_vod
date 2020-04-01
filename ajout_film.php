@@ -63,6 +63,9 @@ include 'include/nav.php'; ?>
             <label><b>Durée</b><br></label>
             <input class="login"  type="time" placeholder="Dure" name="dure" required><br>
 
+            <label><b>Note</b><br></label>
+            <input class="login"  type="text" placeholder="note de 1 à 5" name="note"><br>
+
             <label><b>bande anonce</b><br></label>
             <input class="login"  type="text" placeholder="Lien de la video" name="bande_anonce"><br>
 
@@ -152,7 +155,6 @@ include 'include/nav.php'; ?>
     <fieldset>
            <select  name="id_cinema" required >
             <?php
-                include ('include/connect_bdd.php');
 
                 $req = $bdd->prepare(" SELECT id_film, nom FROM film ");
                 $req->execute();

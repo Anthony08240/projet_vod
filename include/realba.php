@@ -20,9 +20,9 @@
     </div>
 
     <div class="ba-yt">
-        <iframe width="400" height="250" src="https://www.youtube.com/embed/BboKKBYx7-0" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+
+            <iframe src="<?php echo $donnees['bande_anonce']; ?>" height="250" width="400" allowfullscreen="" frameborder="0"></iframe>
+
     </div>
 
 </div>

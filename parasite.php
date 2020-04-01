@@ -10,7 +10,7 @@ require_once 'styleswitcher.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parasite</title>
+    <title>description</title>
 
     <!--SLICK-->
 
@@ -45,14 +45,30 @@ require_once 'styleswitcher.php';
 </head>
 
 <body>
+<?php include 'include/nav.php';?>
+
+<?php
+        
+        include ('include/connect_bdd.php');
+
+
+        $req = $bdd->prepare(" SELECT id_film, nom, date_sortie, affiche, bande_anonce, synopsis, dure, note FROM film ");
+        $req ->execute();
+
+        while( $donnees = $req->fetch() ) { ?>
+
+<h2 class="page-film"><?php echo $donnees['nom']; ?></h2>
 
     <?php
-    include 'include/nav.php';
+    
     include 'include/synopsis.php';
     include 'include/infofilms.php';
     include 'include/acteurs.php';
     include 'include/realba.php';
-    include 'include/footer.php';    
+    include 'include/footer.php';
+    
+        }
+
     ?>
 </body>
 

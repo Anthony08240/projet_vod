@@ -7,8 +7,8 @@
   $date_n = !empty($_POST['date_n']) ? $_POST['date_n'] : NULL;
   $photo = !empty($_POST['photo']) ? $_POST['photo'] : NULL;
 
-  $sql = $bdd->prepare("INSERT INTO film ( nom, prenom, date_n, photo, )
-                        VALUES ( :nom, :prenom, :date_n, :photo, )");
+  $sql = $bdd->prepare("INSERT INTO realisateur ( nom, prenom, date_n, photo )
+                        VALUES ( :nom, :prenom, :date_n, :photo )");
 
   $sql->execute(array(
       ":nom" => $nom,

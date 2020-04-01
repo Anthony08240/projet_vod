@@ -1,37 +1,27 @@
 <!--Liste acteurs-->
 
-
 <div class="acteurs-titre">Acteurs</div>
-
 <section class="liste-acteurs">
     <div class="acteur">
-        <img class="img-acteur" src="./img/acteur1.jfif" alt="">
-        <div>Cho Yeo-jeong</div>
-    </div>
 
-    <div class="acteur">
-        <img class="img-acteur" src="./img/acteur2.jfif" alt="">
-        <div>Park So-dam</div>
-    </div>
 
-    <div class="acteur">
-        <img class="img-acteur" src="./img/acteur3.jfif" alt="">
-        <div>Choi Woo-sik</div>
-    </div>
+<?php
+$req = $bdd->prepare(" SELECT nom, prenom, date_n, photo FROM acteur ");
+        $req ->execute();
 
-    <div class="acteur">
-        <img class="img-acteur" src="./img/acteur4.jfif" alt="">
-        <div>Jung Ji-so</div>
-    </div>
+        while( $donnees = $req->fetch() ) { ?>
 
-    <div class="acteur">
-        <img class="img-acteur" src="./img/acteur5.jfif" alt="">
-        <div>Song Kang-ho</div>
-    </div>
 
-    <div class="acteur">
-        <img class="img-acteur" src="./img/acteur6.jfif" alt="">
-        <div>Lee Sun Gyun</div>
-    </div>
 
+
+
+        <img class="img-acteur" src="<?php echo $donnees['photo']?>" alt="">
+        <div><?php echo $donnees['prenom']?> <?php echo $donnees['nom']?></div>
+
+<?php } ?>
+
+</div>
+
+
+        
 </section>

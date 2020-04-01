@@ -1,16 +1,7 @@
 
  <!--AFFICHE-->
 
- <?php include ('../include/connect_bdd.php'); ?>
-
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>affiche</title>
- </head>
- <body>
-
+ <?php include ('connect_bdd.php'); ?>
 
  <div class="title-dada-affiche">
     <h2>A l'affiche</h2>
@@ -19,16 +10,12 @@
 
 <div class="center slider">
         <?php
-        $req = $bdd->prepare(" SELECT affiche FROM film");
+        $req = $bdd->prepare(" SELECT id_film, affiche FROM film");
         $req ->execute();
 
-        while( $donnees = $req->fetch() ) {
+        while( $donnees = $req->fetch() ) { ?>
 
-        ?>
-
-            <a class="link-poster" href=""><img src="<?= $donnees['affiche'];?>"/></a> 
+            <a class="link-poster" href="parasite.php"><img src="<?= $donnees['affiche'];?>" alt=""></a> 
 
         <?php } ?>
     </div>
- </body>
- </html>

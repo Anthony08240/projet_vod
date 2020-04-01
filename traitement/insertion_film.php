@@ -8,9 +8,10 @@
   $bande_anonce = !empty($_POST['bande_anonce']) ? $_POST['bande_anonce'] : NULL;
   $synopsis = !empty($_POST['synopsis']) ? $_POST['synopsis'] : NULL;
   $dure = !empty($_POST['dure']) ? $_POST['dure'] : NULL;
+  $note = !empty($_POST['note']) ? $_POST['note'] : NULL;
 
-  $sql = $bdd->prepare("INSERT INTO film ( nom, date_sortie, affiche, bande_anonce, synopsis, dure )
-                        VALUES ( :nom, :date_sortie, :affiche, :bande_anonce, :synopsis, :dure )");
+  $sql = $bdd->prepare("INSERT INTO film ( nom, date_sortie, affiche, bande_anonce, synopsis, dure, note )
+                        VALUES ( :nom, :date_sortie, :affiche, :bande_anonce, :synopsis, :dure, :note )");
 
   $sql->execute(array(
       ":nom" => $nom,
@@ -18,7 +19,8 @@
       ":affiche" => $affiche,
       ":bande_anonce" => $bande_anonce,
       ":synopsis" => $synopsis,
-      ":dure" => $dure
+      ":dure" => $dure,
+      ":note" => $note
   ));
 
   $sql-> closeCursor();

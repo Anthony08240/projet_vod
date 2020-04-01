@@ -1,4 +1,9 @@
 
+affiché la page du id_film
+
+?id=<?php echo $donnee->id_film;?>
+
+
   /* envoyé photo dans bdd */
 
 if(isset($_FILES['affiche']) AND !empty($_FILES['affiche']['name']))
