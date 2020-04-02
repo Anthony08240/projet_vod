@@ -52,7 +52,7 @@ require_once 'styleswitcher.php';
         include ('include/connect_bdd.php');
 
 
-        $req = $bdd->prepare(" SELECT id_film, nom, date_sortie, affiche, bande_anonce, synopsis, dure, note FROM film ");
+        $req = $bdd->prepare(" SELECT id_film, nom, date_sortie, affiche, bande_anonce, synopsis, dure, note FROM film WHERE id_film ='".$_GET['id']."'");
         $req ->execute();
 
         while( $donnees = $req->fetch() ) { ?>

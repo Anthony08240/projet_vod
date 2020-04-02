@@ -43,7 +43,7 @@ require_once 'styleswitcher.php';
 include 'include/nav.php'; ?>
 
 
-  <!-- zone de connexion -->
+  <!-- ajout d'un film -->
 
     <div id="container">
       
@@ -67,7 +67,7 @@ include 'include/nav.php'; ?>
             <input class="login"  type="text" placeholder="note de 1 à 5" name="note"><br>
 
             <label><b>bande anonce</b><br></label>
-            <input class="login"  type="text" placeholder="Lien de la video" name="bande_anonce"><br>
+            <input class="login"  type="text" placeholder="lien integration de la video" name="bande_anonce"><br>
 
             <label><b>affiche</b><br></label>
             <input class="login"  type="text" placeholder="url de l'affiche" name="affiche"><br>
@@ -101,29 +101,6 @@ include 'include/nav.php'; ?>
       <input placeholder="url De La Photo" name="photo" type="text" required>
     </fieldset><br><br>
     <fieldset>
-           <select  name="id_cinema" required >
-            <?php
-                include ('include/connect_bdd.php');
-
-                $req = $bdd->prepare(" SELECT id_film, nom FROM film ");
-                $req->execute();
-
-                while ( $donnees = $req->fetch() ){ ?>
-
-                  <option value="<?= $donnees['id_film']; ?>"> Nom Du Film : <?= $donnees['nom']; ?> </option>
-
-
-              <?php  }
-
-             ?>
-
-
-
-
-
-            </select>
-    </fieldset><br><br>
-    <fieldset>
       <button class="ok" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Envoyer</button>
     </fieldset>
   </form>
@@ -153,8 +130,24 @@ include 'include/nav.php'; ?>
       <input placeholder="url De La Photo" name="photo" type="text" required>
     </fieldset><br><br>
     <fieldset>
-           <select  name="id_cinema" required >
-            <?php
+      <button class="ok" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Envoyer</button>
+    </fieldset>
+  </form>
+</div>
+
+  
+
+ <!-- select acteur to film -->
+
+ <div id="container">
+ <form id="contact" action="traitement/insertion_act_to_film.php" method="post">
+    <h2><center>Ajouter un acteur a un film</center></h2>
+ <fieldset>
+<select  name="id_cinema" required >
+            <?php 
+
+               include ('include/connect_bdd.php');
+
 
                 $req = $bdd->prepare(" SELECT id_film, nom FROM film ");
                 $req->execute();
@@ -173,13 +166,101 @@ include 'include/nav.php'; ?>
 
 
             </select>
-    </fieldset><br><br>
-    <fieldset>
-      <button class="ok" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Envoyer</button>
+</fieldset>
+<br><br>
+<fieldset>
+<select  name="id_acteur" required >
+            <?php
+
+                $req = $bdd->prepare(" SELECT id_acteur, nom, prenom FROM acteur ");
+                $req->execute();
+
+                while ( $donnees = $req->fetch() ){ ?>
+
+                  <option value="<?= $donnees['id_acteur']; ?>"> Nom De L'Acteur : <?= $donnees['prenom']; ?> <?= $donnees['nom']; ?></option>
+
+
+              <?php  }
+
+             ?>
+
+
+
+
+
+            </select>
+</fieldset>
+<br><br>
+<fieldset>
+      <button class="ok" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Ajouter</button>
     </fieldset>
   </form>
 </div>
+
+
+ <!-- select real to film -->
+
+ <div id="container">
+ <form id="contact" action="traitement/insertion_real_to_film.php" method="post">
+    <h2><center>Ajouter un realisateur a un film</center></h2>
+ <fieldset>
+<select  name="id_cinema" required >
+            <?php 
+
+
+
+                $req = $bdd->prepare(" SELECT id_film, nom FROM film ");
+                $req->execute();
+
+                while ( $donnees = $req->fetch() ){ ?>
+
+                  <option value="<?= $donnees['id_film']; ?>"> Nom Du Film : <?= $donnees['nom']; ?> </option>
+
+
+              <?php  }
+
+             ?>
+
+
+
+
+
+            </select>
+</fieldset>
+<br><br>
+<fieldset>
+<select  name="id_acteur" required >
+            <?php
+
+                $req = $bdd->prepare(" SELECT id_realisateur, nom, prenom FROM realisateur ");
+                $req->execute();
+
+                while ( $donnees = $req->fetch() ){ ?>
+
+                  <option value="<?= $donnees['id_realisateur']; ?>"> Nom Du Réalisateur : <?= $donnees['prenom']; ?> <?= $donnees['nom']; ?></option>
+
+
+              <?php  }
+
+             ?>
+
+
+
+
+
+            </select>
+</fieldset>
+<br><br>
+<fieldset>
+      <button class="ok" name="submit" type="submit" id="contact-submit" data-submit="...Sending">Ajouter</button>
+    </fieldset>
+  </form>
+</div>
+
+
 <?php 
+
+
 include 'include/footer.php'; ?>
 
 

@@ -14,8 +14,6 @@
         $req ->execute();
 
         while( $donnees = $req->fetch() ) { ?>
-
-            <a class="link-poster" href="parasite.php"><img src="<?= $donnees['affiche'];?>" alt=""></a> 
-
+            <a class="link-poster" href="parasite.php?id=<?php echo $donnees['id_film'];?>"><img src="<?= $donnees['affiche'];?>" alt=""></a>
         <?php } ?>
     </div>

@@ -8,21 +8,32 @@
     
 
     <div class="real">
+    <?php
+$req = $bdd->prepare(" SELECT nom, prenom, date_n, photo, id_film FROM realisateur NATURAL JOIN realise  WHERE id_film ='".$_GET['id']."' ");
+        $req ->execute();
+
+        while( $donnees = $req->fetch() ) { ?>
         <div class="img-real">
-            <img src="./img/real.jfif" alt="">
-            <div>Bong Joon Ho</div>
+
+            <img src="<?php echo $donnees['photo']?>" alt="">
+            <div><?php echo $donnees['prenom']?> <?php echo $donnees['nom']?></div>
+
+        
         </div>
-        <div class="text-real">
-            Pour son film Parasite, il remporte la Palme d'or au festival de Cannes 2019, puis en 2020, le prix du
-            meilleur film en langue étrangère aux Golden Globes, quatre Oscars (meilleur scénario original, meilleur
-            film international, meilleur réalisateur, et meilleur film) et le César du meilleur film étranger.
-        </div>
+        <?php } ?>
+   
     </div>
 
     <div class="ba-yt">
+    <?php
+    $req = $bdd->prepare(" SELECT bande_anonce, id_film FROM film WHERE id_film ='".$_GET['id']."' ");
+        $req ->execute();
 
-            <iframe src="<?php echo $donnees['bande_anonce']; ?>" height="250" width="400" allowfullscreen="" frameborder="0"></iframe>
+        while( $donnees = $req->fetch() ) { ?>
 
+
+            <?php echo $donnees['bande_anonce']; ?>
+        <?php } ?>
     </div>
 
 </div>

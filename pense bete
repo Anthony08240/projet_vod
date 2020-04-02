@@ -1,5 +1,95 @@
 
+connection user
+
+
+
+<?php 
+
+include ('connect_bdd.php'); 
+
+$nom = !empty($_POST['nom']) ? $_POST['nom'] : NULL;
+$prenom = !empty($_POST['prenom']) ? $_POST['prenom'] : NULL;
+$date_n = !empty($_POST['date_n']) ? $_POST['date_n'] : NULL;
+$photo = !empty($_POST['photo']) ? $_POST['photo'] : NULL;
+
+$sql = $bdd->prepare("SELECT  * FROM utilisateur WHERE email = :email AND pass = :pass" );
+$req -> execute (array(
+              'email' -> $email,
+              'pass' => $pass
+));
+
+$resultat = $req->fetch();
+
+if (isset( $resultat['email']){
+
+   if ($resultat['pass']==$pass ){
+
+     session_start();
+     $_session['id_user'] = $resultat['id_user'];
+     $_session['email'] = $email;
+     header('location:...index.php');
+
+   }
+
+   else {
+       echo "le mdp est mort";
+          echo "<a href='index.php'>revenir tenter votre chance</a>";
+   }
+
+}else{
+
+   echo"email trouvé";
+      echo "<a href='index.php'>revenir tenter votre chance</a>";
+
+}
+
+?>
+
+
+decconexion
+
+<?php 
+session_start();
+
+
+$session = array();
+session_destroy();
+
+
+echo "vous etes maintenant déconnecté";
+echo "<a href'index.php'> Cliquer ici pour revenir en arrière</a>";
+?>
+
+
+
+session page degage ou reste
+
+<?php session_start();
+
+if (isset($_SESSION['id_user']) AND isset($_SESSION['email'])){
+
+?>
+
+
+
+
+
+en bas de la page
+
+<?php
+}else{
+    header("Location:...index.php");
+}
+?>
+
+
+
+
+
+
 affiché la page du id_film
+
+
 
 ?id=<?php echo $donnee->id_film;?>
 
