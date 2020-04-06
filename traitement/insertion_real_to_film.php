@@ -2,8 +2,8 @@
 
  include ('../include/connect_bdd.php');
 
- $id_realisateur= !empty($_POST['id_realisateur']) ? $_POST['id_realisateur'] : '1';
- $id_film= !empty($_POST['id_film']) ? $_POST['id_film'] : '1';
+ $id_realisateur= !empty($_POST['id_realisateur']) ? $_POST['id_realisateur'] : NULL;
+ $id_film= !empty($_POST['id_film']) ? $_POST['id_film'] : NULL;
 
   $sql = $bdd->prepare("INSERT INTO realise ( id_realisateur, id_film )
                         VALUES ( :id_realisateur, :id_film )");
@@ -12,8 +12,6 @@
       ":id_realisateur" => $id_realisateur,
       ":id_film" => $id_film
   ));
-
-  $sql-> closeCursor();
 
   header('location:.../ajout_film.php');
 

@@ -13,8 +13,6 @@
       ":id_film" => $id_film
   ));
 
-  $sql-> closeCursor();
-
   header('location:.../ajout_film.php');
 
 ?>

@@ -143,7 +143,7 @@ include 'include/nav.php'; ?>
  <form id="contact" action="traitement/insertion_act_to_film.php" method="post">
     <h2><center>Ajouter un acteur a un film</center></h2>
  <fieldset>
-<select  name="id_cinema" required >
+<select  name="id_film" required >
             <?php 
 
                include ('include/connect_bdd.php');
@@ -204,9 +204,8 @@ include 'include/nav.php'; ?>
  <form id="contact" action="traitement/insertion_real_to_film.php" method="post">
     <h2><center>Ajouter un realisateur a un film</center></h2>
  <fieldset>
-<select  name="id_cinema" required >
+<select  name="id_film" required >
             <?php 
-
 
 
                 $req = $bdd->prepare(" SELECT id_film, nom FROM film ");
@@ -229,7 +228,7 @@ include 'include/nav.php'; ?>
 </fieldset>
 <br><br>
 <fieldset>
-<select  name="id_acteur" required >
+<select  name="id_realisateur" required >
             <?php
 
                 $req = $bdd->prepare(" SELECT id_realisateur, nom, prenom FROM realisateur ");

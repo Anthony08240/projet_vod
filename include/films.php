@@ -10,12 +10,12 @@
     </div>
 
     <div class="center slider">
-
         <?php
        $req = $bdd->prepare(" SELECT id_film, nom, date_sortie, affiche, bande_anonce, synopsis, dure, note  FROM film");
        $req ->execute();
 
        while( $donnees = $req->fetch() ) { ?>
+
 
 
         <div class="cardaxel">
@@ -30,10 +30,12 @@
                         <p><?php echo $donnees['dure']; ?></p>
                     </div>
                 </div>
+
+
+
         </div>
 
-    
 
+        <?php } ?>
 
-    <?php } ?>
-</div>
+    </div>
