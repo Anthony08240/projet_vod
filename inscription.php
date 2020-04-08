@@ -48,26 +48,23 @@ include 'include/nav.php'; ?>
     <div id="container">
       
 
-        <form action="traitement\connexion-user.php" method="POST">
-            <h2>Connexion</h2>
+        <form action="traitement\inscrire.php" method="POST">
+            <h2>Inscription</h2>
 
             <label><b>Pseudo</b></label>
-            <input class="login" type="text" placeholder="Nom d'utilisateur" name="pseudo" required> <br>
+            <input class="login" type="text" placeholder="pseudo" name="pseudo" required> <br>
 
             <label><b>Email</b></label>
-            <input class="login" type="email" placeholder="Mail d'utilisateur" name="mail" required> <br>
+            <input class="login" type="email" placeholder="mail" name="mail" required> <br>
 
             <label><b>Mot de passe</b></label>
             <input class="login"  type="password" placeholder="Mot de passe" name="motdepasse" required><br>
 
-            <input class="ok" type="submit" name="forminscription" id='submit' value="Se connecter"> <br>
+            <input class="ok" type="submit" name="forminscription" id='submit' value="S'inscrire"> <br>
 
 
         </form>
-        <br>
-        <button class="ok" ><a href="inscription.php" style="text-decoration:none; color:black; border:0px">s'inscrire</a></button>
     </div>
-
 
 <?php 
 include 'include/footer.php'; ?>
