@@ -255,8 +255,12 @@ include 'include/nav.php'; ?>
     </fieldset>
   </form>
 </div>
-
-
+<center>
+<button><a href="crud.php" style="color:black;">crud film</a></button>&nbsp; &nbsp; &nbsp; 
+<button><a href="crud_acteur.php" style="color:black;">crud acteur</a></button>&nbsp; &nbsp; &nbsp; 
+<button><a href="crud_realisateur.php" style="color:black;">crud realisateur</a></button>
+</center>
+<br><br><br>
 <?php 
 
 

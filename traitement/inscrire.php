@@ -6,15 +6,18 @@
   $mail = !empty($_POST['mail']) ? $_POST['mail'] : NULL;
   $motdepasse = !empty($_POST['motdepasse']) ? $_POST['motdepasse'] : NULL;
 
-  $sql = $bdd->prepare("INSERT INTO utilisateur ( pseudo, mail, motdepasse )
-                        VALUES ( :pseudo, :mail, :motdepasse )");
+  $sql = $bdd->prepare("INSERT INTO utilisateur ( pseudo, mail, motdepasse, id_type )
+                        VALUES ( :pseudo, :mail, :motdepasse, :id_type )");
 
   $sql->execute(array(
       ":pseudo" => $pseudo,
       ":mail" => $mail,
-      ":motdepasse" => $motdepasse
+      ":motdepasse" => $motdepasse,
+      ":id_type" => 2
   ));
 
-  header('location:.../ajout_film.php');
+  echo 'vous etes inscrit'
 
 ?>
+<br><br>
+<a href="/projet_vod">retour</a>

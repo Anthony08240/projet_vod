@@ -42,7 +42,7 @@
               <td><?= $donnees['dure']; ?></td>
               <td><?= $donnees['note']; ?></td>
               <td><button><a href="form_modifier_film.php?id=<?php echo $donnees['id_film'];?>" style="color:black;">Modifier</a></button></td>
-              <td><button><a href="form_modifier_film.php?id=<?php echo $donnees['id_film'];?>" style="color:black;">Supprimer</a></button></td>
+              <td><button><a href="traitement/supprimer_film.php?id=<?php echo $donnees['id_film'];?>" style="color:black;">Supprimer</a></button></td>
             </tr>
 
 

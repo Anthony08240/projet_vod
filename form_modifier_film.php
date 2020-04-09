@@ -28,7 +28,7 @@ $req ->execute();
 while( $donnees = $req->fetch() ) { ?>
 
 <center>
-            <form action="traitement/modifier_film.php" method="POST" >
+            <form action="traitement/modifier_film.php?id=<?php echo $donnees['id_film'];?>" method="POST" >
                 <h2>Modifier un Film</h2>
 
                 <label><b>Nom Du Film</b><br><br></label>
