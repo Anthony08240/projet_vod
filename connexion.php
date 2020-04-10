@@ -54,13 +54,10 @@ include 'include/nav.php'; ?>
             <label><b>Pseudo</b></label>
             <input class="login" type="text" placeholder="Nom d'utilisateur" name="pseudo" required> <br>
 
-            <label><b>Email</b></label>
-            <input class="login" type="email" placeholder="Mail d'utilisateur" name="mail" required> <br>
-
             <label><b>Mot de passe</b></label>
             <input class="login"  type="password" placeholder="Mot de passe" name="motdepasse" required><br>
 
-            <input class="ok" type="submit" name="forminscription" id='submit' value="Se connecter"> <br>
+            <input class="ok" type="submit" name="connexion" id='submit' value="Se connecter"> <br>
 
 
         </form>

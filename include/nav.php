@@ -10,8 +10,8 @@
             <div>
                 <ul>
                     <Li><a href="catalogue.php">Films</a></Li>
-                    <Li><a href="connexion.php">Connexion</a></Li>
-                    <li><a href="ajout_film.php">Ajouter</a></li>
+                    <Li><a href="connexion.php">Connexion/Inscription</a></Li>
+                    <li><a href="ajout_film.php">Ajouter/Crud</a></li>
                         <div class="liens-couleurs">
 
                     <li>
@@ -78,9 +78,9 @@
                 <li>
                     <div class="style_ilayda"><a href="<?php echo $actuel; ?>?style=index.css"></a></div>
                 </li>
-                <li><a href="ajout_film.php">Ajouter</a></li>
+                <li><a href="ajout_film.php">Ajouter/Crud</a></li>
                 <li><a href="catalogue.php">Films</a></li>
-                <li><a href="connexion.php">Connexion</a></li>
+                <li><a href="connexion.php">Connexion/Inscription</a></li>
             </ul>
         </div>
     </div>
